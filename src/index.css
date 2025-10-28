@@ -1,1 +1,16 @@
 @import "tailwindcss";
+@keyframes typing-once {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-once {
+  0%, 50% { border-color: transparent }
+  51%, 100% { border-color: transparent }
+}
+
+.animate-typing-once {
+  width: 0;
+  animation: typing-once 1.5s steps(12, end) forwards, blink-once 2.5s step-end 1;
+  border-right: 4px solid transparent; /* hides cursor after typing */
+}
