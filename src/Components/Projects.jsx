@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
-import healthimg from "C:/Users/ASUS/Desktop/Om Importants/Projects/Poftfolio/Om_Portfolio/public/healthproject.png";
 
 export default function Projects() {
   const projectData = [
