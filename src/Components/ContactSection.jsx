@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub, FaEnvelope, FaCode, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
 import { HiOutlineLocationMarker, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 
 const ContactSection = () => {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append("access_key", "aad61d85-998a-4d2b-852d-1e079afbf277"); // your Web3Forms API key
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      setResult("Message sent successfully!");
+      event.target.reset();
+    } else {
+      setResult("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <section className="bg-gray-900 text-white py-16 px-6 md:px-16">
       <motion.div
@@ -45,16 +66,31 @@ const ContactSection = () => {
 
           <h4 className="text-xl font-semibold mt-8 mb-4">Follow me on</h4>
           <div className="flex gap-4">
-            <a href="https://www.linkedin.com/in/om-gadge-a4827b226/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-500">
+            <a
+              href="https://www.linkedin.com/in/om-gadge-a4827b226/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-purple-500"
+            >
               <FaLinkedin size={24} />
             </a>
-            <a href="https://github.com/OmGadge01" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <a
+              href="https://github.com/OmGadge01"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400"
+            >
               <FaGithub size={24} />
             </a>
-            <a href="" className="hover:text-green-500">
+            <a href="mailto:omgadge19434@gmail.com" className="hover:text-green-500">
               <FaEnvelope size={24} />
             </a>
-            <a href="https://www.instagram.com/om_gadge_11/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+            <a
+              href="https://www.instagram.com/om_gadge_11/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500"
+            >
               <FaInstagram size={24} />
             </a>
           </div>
@@ -68,31 +104,32 @@ const ContactSection = () => {
           className="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg"
         >
           <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
-          <form
-            className="space-y-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Form submitted! (Dummy action)");
-            }}
-          >
+          <form className="space-y-4" onSubmit={onSubmit}>
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
+              required
               className="w-full p-3 rounded bg-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
             <input
               type="email"
+              name="email"
               placeholder="Email Address"
+              required
               className="w-full p-3 rounded bg-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
             <input
               type="text"
+              name="subject"
               placeholder="Subject"
               className="w-full p-3 rounded bg-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
             <textarea
+              name="message"
               placeholder="Message"
               rows={5}
+              required
               className="w-full p-3 rounded bg-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
             <button
@@ -102,6 +139,9 @@ const ContactSection = () => {
               Send Message
             </button>
           </form>
+          {result && (
+            <p className="text-center text-sm mt-4 text-gray-300">{result}</p>
+          )}
         </motion.div>
       </div>
     </section>
