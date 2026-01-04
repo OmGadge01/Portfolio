@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import resume from "../../public/Resume.pdf"
 
 function Hero() {
   return (
@@ -15,7 +16,7 @@ function Hero() {
         className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left max-w-2xl space-y-5"
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.h1
           className="text-4xl sm:text-5xl lg:text-6xl font-bold font-roboto bg-clip-text bg-gradient-to-r from-blue-500 to-violet-500 text-transparent leading-tight whitespace-nowrap overflow-hidden border-r-4 border-violet-400 pr-2 animate-typing-once"
@@ -50,7 +51,8 @@ function Hero() {
           </motion.a>
 
           <motion.a
-            href="https://drive.google.com/file/d/1tFcN4urrO_II0Hrk-CEEqM_8E7vyrdJb/view?usp=sharing"
+            href={resume}
+            download={resume}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}

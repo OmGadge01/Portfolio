@@ -5,13 +5,29 @@ import ProjectCard from "./ProjectCard";
 export default function Projects() {
   const projectData = [
     {
-      image: "/healthproject.png",
+      image: "/Health-Project.png",
       title: "HealthIQ.AI",
       description:
         "AI-powered platform that analyzes user health data to deliver personalized, locality-based diet and exercise recommendations.",
       tech: ["React", "Node.js", "Tailwind Css", "Gemini API", "Express.js"],
       liveLink: "https://healthiqai.vercel.app",
       githubLink: "https://github.com/OmGadge01/HeathIq.AI",
+    },
+    {
+      image: "/Consent-Manager.jpg",
+      title: "Consent Flow Optimizer",
+      description:
+        "A privacy-first consent management system that tracks, analyzes, and scores browser permissions using real user consent data with real-time risk assessment.",
+      tech: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Browser API",
+        "Catboost ALgorithm(ML)",
+      ],
+      liveLink: "https://consentsopti.vercel.app/",
+      githubLink: "https://github.com/KareenaChinchkar25/consent_flow_optimizer",
     },
     {
       image:
@@ -23,18 +39,18 @@ export default function Projects() {
       liveLink: "https://your-live-link.com",
       githubLink: "https://github.com/OmGadge01/Jarvis-Assistance",
     },
-
-    {
-      image:
-        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
-      title: "YumHub",
-      description:
-        "A smart recipe recommendation platform that suggests personalized dishes based on user preferences, available ingredients, and dietary needs — turning your kitchen into an AI-powered chef assistant.",
-      tech: ["React", "Tailwind CSS", "Node.js", "Express.js", "Recipe API"],
-      liveLink: "https://yumhub-neon.vercel.app/", 
-      githubLink: "https://github.com/OmGadge01/Yumhub", 
-    },
-  ];
+  ]
+  //   {
+  //     image:
+  //       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+  //     title: "YumHub",
+  //     description:
+  //       "A smart recipe recommendation platform that suggests personalized dishes based on user preferences, available ingredients, and dietary needs — turning your kitchen into an AI-powered chef assistant.",
+  //     tech: ["React", "Tailwind CSS", "Node.js", "Express.js", "Recipe API"],
+  //     liveLink: "https://yumhub-neon.vercel.app/", 
+  //     githubLink: "https://github.com/OmGadge01/Yumhub", 
+  //   },
+  // ];
 
   return (
     <section
