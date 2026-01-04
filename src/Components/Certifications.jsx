@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import FloatingCertifications from "./FloatingCertifications";
 
 function Achievements() {
   const certifications = [
